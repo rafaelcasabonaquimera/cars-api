@@ -1,6 +1,5 @@
 package br.com.pitang.carsapi.user.domain.entity;
 
-import br.com.pitang.carsapi.car.domain.entity.Car;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,13 +21,15 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
 
+    private Integer id;
+
     private String firstName;
 
     private String lastName;
 
     private String email;
 
-    private Date birthday;
+    private String birthday;
 
     private String login;
 
