@@ -58,8 +58,14 @@ public class UserHibernateAdapter implements UserCreateOutput {
 
     @Override
     public User findByEmail(String email) {
-        Optional<UserData> byEmail = repository.findByEmail(email);
-        return this.mapper.fromData(byEmail.orElse(UserData.builder().build()));
+        Optional<UserData> optionalUserData = repository.findByEmail(email);
+        return this.mapper.fromData(optionalUserData.orElse(UserData.builder().build()));
+    }
+
+    @Override
+    public User findByLogin(String login) {
+        Optional<UserData> optionalUserData = repository.findByLogin(login);
+        return this.mapper.fromData(optionalUserData.orElse(UserData.builder().build()));
     }
 
 }

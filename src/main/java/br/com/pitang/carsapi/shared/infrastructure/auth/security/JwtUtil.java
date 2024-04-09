@@ -1,4 +1,4 @@
-package br.com.pitang.carsapi.shared.infrastructure.auth;
+package br.com.pitang.carsapi.shared.infrastructure.auth.security;
 
 import br.com.pitang.carsapi.user.domain.entity.User;
 import io.jsonwebtoken.*;

@@ -1,4 +1,4 @@
-package br.com.pitang.carsapi.shared.infrastructure.auth;
+package br.com.pitang.carsapi.shared.infrastructure.auth.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.jsonwebtoken.Claims;
@@ -32,7 +32,7 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        Map<String, Object> errorDetails = new HashMap<>();
+        final Map<String, Object> errorDetails = new HashMap<>();
 
         try {
             String accessToken = jwtUtil.resolveToken(request);
@@ -40,12 +40,10 @@ public class JwtAuthorizationFilter extends OncePerRequestFilter {
                 filterChain.doFilter(request, response);
                 return;
             }
-            System.out.println("token : " + accessToken);
             Claims claims = jwtUtil.resolveClaims(request);
 
             if (claims != null & jwtUtil.validateClaims(claims)) {
                 String email = claims.getSubject();
-                System.out.println("email : " + email);
                 Authentication authentication =
                         new UsernamePasswordAuthenticationToken(email, "", new ArrayList<>());
                 SecurityContextHolder.getContext().setAuthentication(authentication);

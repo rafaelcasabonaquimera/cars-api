@@ -14,4 +14,6 @@ public interface UserCreateOutput {
 
     User findByEmail(String email);
 
+    User findByLogin(String login);
+
 }

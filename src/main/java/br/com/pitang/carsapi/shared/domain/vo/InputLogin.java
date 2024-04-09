@@ -1,4 +1,4 @@
-package br.com.pitang.carsapi.user.domain.vo;
+package br.com.pitang.carsapi.shared.domain.vo;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -9,7 +9,7 @@ import lombok.extern.jackson.Jacksonized;
 @Getter
 @ToString
 @Jacksonized
-public class LoginReq {
+public class InputLogin {
 
     private String email;
 

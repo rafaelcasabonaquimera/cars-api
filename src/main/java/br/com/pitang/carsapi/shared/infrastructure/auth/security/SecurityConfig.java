@@ -1,4 +1,4 @@
-package br.com.pitang.carsapi.shared.infrastructure.auth;
+package br.com.pitang.carsapi.shared.infrastructure.auth.security;
 
 import br.com.pitang.carsapi.user.framework.output.hibernate.CustomUserHibernateAdapter;
 import org.springframework.context.annotation.Bean;
@@ -37,7 +37,7 @@ public class SecurityConfig {
         return http.csrf(csrf -> csrf.disable())
 
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/signin","/api/users/**")
+                        .requestMatchers("/api/signin", "/users/", "/api/users/**", "/api/v1/users/**", "/actuator/**", "/actuator/**")
                         .permitAll()
                         .anyRequest().authenticated())
                 .httpBasic(Customizer.withDefaults())

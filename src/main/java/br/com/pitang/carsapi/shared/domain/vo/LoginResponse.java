@@ -1,19 +1,19 @@
-package br.com.pitang.carsapi.user.domain.vo;
+package br.com.pitang.carsapi.shared.domain.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
-import lombok.extern.jackson.Jacksonized;
 
-@Builder(toBuilder = true)
+@Builder
 @Getter
+@Setter
 @ToString
-@Jacksonized
 @AllArgsConstructor
 @NoArgsConstructor
-public class LoginRes {
+public class LoginResponse {
 
     private String email;
 

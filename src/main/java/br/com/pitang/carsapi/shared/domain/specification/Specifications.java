@@ -3,7 +3,7 @@ package br.com.pitang.carsapi.shared.domain.specification;
 import java.util.Objects;
 import java.util.function.BiFunction;
 
-public interface Specifications<T> {
+public interface Specifications {
 
     static <T> AbstractSpecification<T> basic(
             BiFunction<T, AbstractSpecification<T>, Boolean> function) {
@@ -16,7 +16,6 @@ public interface Specifications<T> {
     }
 
     class FunctionValidator<T> extends AbstractSpecification<T> {
-
         private final BiFunction<T, AbstractSpecification<T>, Boolean> function;
 
         FunctionValidator(String message, BiFunction<T, AbstractSpecification<T>, Boolean> function) {

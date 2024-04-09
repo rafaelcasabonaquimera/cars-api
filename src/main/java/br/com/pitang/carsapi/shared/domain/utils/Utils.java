@@ -17,10 +17,8 @@ public interface Utils {
         return validator.isValid(year.toString());
     }
 
-    static boolean patternMatches(String value, String regexPattern) {
-        return Pattern.compile(regexPattern)
-                .matcher(value)
-                .matches();
+    static boolean patternMatches(String value, Pattern regexPattern) {
+        return regexPattern.matcher(value).matches();
     }
 
 

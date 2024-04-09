@@ -1,4 +1,4 @@
-package br.com.pitang.carsapi.user.framework.output.rest;
+package br.com.pitang.carsapi.user.framework.input.rest;
 
 import br.com.pitang.carsapi.user.domain.entity.User;
 import org.springframework.http.ResponseEntity;

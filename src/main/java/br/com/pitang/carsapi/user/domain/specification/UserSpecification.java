@@ -6,7 +6,11 @@ import br.com.pitang.carsapi.shared.domain.specification.Specifications;
 import br.com.pitang.carsapi.shared.domain.utils.Utils;
 import br.com.pitang.carsapi.user.domain.entity.User;
 
+import java.util.regex.Pattern;
+
 public interface UserSpecification {
+
+    Pattern VALID_EMAIL_ADDRESS_REGEX = Pattern.compile(Constants.REGEX_EMAIL, Pattern.CASE_INSENSITIVE);
 
     static AbstractSpecification<User> firstNameIsNotEmpty() {
         return Specifications.basic("Missing fields, firstName",
@@ -25,7 +29,7 @@ public interface UserSpecification {
 
     static AbstractSpecification<User> emailIsValid() {
         return Specifications.basic("Invalid fields, email",
-                (candidate, v) -> candidate.getEmail() != null && !Utils.patternMatches(candidate.getEmail(), Constants.REGEX_EMAIL));
+                (candidate, v) -> candidate.getEmail() != null && Utils.patternMatches(candidate.getEmail(), VALID_EMAIL_ADDRESS_REGEX));
     }
 
     static AbstractSpecification<User> passwordIsNotEmpty() {

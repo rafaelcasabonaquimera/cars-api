@@ -14,8 +14,6 @@ public abstract class AbstractSpecification<T> implements Specification<T> {
 
   private String message;
 
-  public abstract boolean isSatisfiedBy(T t);
-
   public void check(T t) throws GenericSpecificationException {
     boolean isValid = isSatisfiedBy(t);
     if (!isValid) {
@@ -23,7 +21,4 @@ public abstract class AbstractSpecification<T> implements Specification<T> {
     }
   }
 
-  public Specification<T> and(final Specification<T> specification) {
-    return new AndSpecification<>(this, specification);
-  }
 }

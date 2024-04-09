@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ResponseError {
 
-    private int errorCode = 400;
     private String message;
+    private int errorCode = 400;
 
 }
