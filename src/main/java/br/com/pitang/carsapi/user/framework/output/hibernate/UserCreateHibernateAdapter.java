@@ -17,7 +17,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Component
-public class UserHibernateAdapter implements UserCreateOutput {
+public class UserCreateHibernateAdapter implements UserCreateOutput {
 
     @Autowired
     private UserRepository repository;
@@ -48,7 +48,12 @@ public class UserHibernateAdapter implements UserCreateOutput {
 
     @Override
     public List<User> findAll() {
-        return repository.findAll().stream().map(data -> mapper.fromData(data)).collect(Collectors.toList());
+        List<UserData> list = repository.findAll();
+        if (list != null) {
+            return list.stream().map(user -> mapper.fromData(user)).collect(Collectors.toList());
+        }
+
+        return null;
     }
 
     @Override

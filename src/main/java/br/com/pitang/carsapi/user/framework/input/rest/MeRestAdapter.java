@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/me")
+@RequestMapping("/me")
 public class MeRestAdapter {
     @GetMapping
     public ResponseEntity<User> user() {

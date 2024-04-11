@@ -28,7 +28,7 @@ public class UserCreateInput implements UserCreateUseCase {
             throw new LoginJaExistenteException("Login already exists");
         }
 
-        return this.userCreateOutput.create(UserService.fromInput(input));
+        return this.userCreateOutput.create(UserService.fromInput(null, input));
     }
 
     @Override

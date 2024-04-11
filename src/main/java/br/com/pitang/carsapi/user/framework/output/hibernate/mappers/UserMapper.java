@@ -14,6 +14,10 @@ import java.util.stream.Collectors;
 public class UserMapper {
 
     public User fromData(UserData data) {
+        if (data==null) {
+            return null;
+        }
+
         List<Car> listCar = new ArrayList<>();
         if (data.getCars() != null) {
             listCar = data.getCars().stream()
@@ -65,6 +69,19 @@ public class UserMapper {
                 .build();
 
         return data;
+    }
+
+    public UserData toData(Integer id, User user) {
+        return UserData.builder()
+                .id(id)
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .birthday(user.getBirthday())
+                .login(user.getLogin())
+                .password(user.getPassword())
+                .phone(user.getPhone())
+                .build();
     }
 
 }

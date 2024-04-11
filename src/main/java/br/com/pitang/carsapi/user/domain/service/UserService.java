@@ -15,8 +15,9 @@ public interface UserService {
      * @param input
      * @return <code>User</code>
      */
-    static User fromInput(InputUser input) {
+    static User fromInput(Integer id, InputUser input) {
         var entity = User.builder()
+                .id(id)
                 .firstName(input.getFirstName())
                 .lastName(input.getLastName())
                 .email(input.getEmail())
